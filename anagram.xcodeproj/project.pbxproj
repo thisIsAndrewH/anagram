@@ -34,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9214F63F1F8425D60020DAD8 /* dictionary_small.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dictionary_small.json; sourceTree = "<group>"; };
 		92356AE91F82E898005D2515 /* anagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = anagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92356AEC1F82E898005D2515 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92356AEE1F82E898005D2515 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +75,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9214F63E1F8425D60020DAD8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				9214F63F1F8425D60020DAD8 /* dictionary_small.json */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		92356AE01F82E898005D2515 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +90,7 @@
 				92356B001F82E898005D2515 /* anagramTests */,
 				92356B0B1F82E898005D2515 /* anagramUITests */,
 				92356AEA1F82E898005D2515 /* Products */,
+				9214F63E1F8425D60020DAD8 /* resources */,
 			);
 			sourceTree = "<group>";
 		};
@@ -427,6 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FPFNSZ873;
 				INFOPLIST_FILE = anagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "andrew-harris.com.anagram";
@@ -441,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2FPFNSZ873;
 				INFOPLIST_FILE = anagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "andrew-harris.com.anagram";

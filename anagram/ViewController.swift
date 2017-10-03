@@ -19,7 +19,36 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBOutlet weak var anagramInput: UITextField!
+    @IBOutlet weak var anagramOutput: UITextView!
+    
+    @IBAction func findAnagrams(_ sender: Any) {
+        //grab the input
+        let userInput = anagramInput.text
+        
+        //find anagram(s)
+        let sortedInput = anagramSorter(userInputToSort: userInput!)
+        
+        //display anagram(s)
+        anagramOutput.text = "OG: " + (userInput)! + "\nSorted: " + String(describing: sortedInput)
 
+    }
+    
+    private func anagramSorter(userInputToSort: String) -> Array<Any> {
+        //sorts the input alphabetically
+        let characters = Array(userInputToSort.lowercased())
+        print(characters.sorted())
+        
+        return characters.sorted()
+    }
+    
+    func loadDictionary() -> Array<Any> {
+        //load and parse the dictionary file
+        let dictionary = ["word","definition"]
+        
+        return dictionary
+    }
+    
 
 }
 
