@@ -16,6 +16,7 @@
 		92356B0D1F82E898005D2515 /* anagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92356B0C1F82E898005D2515 /* anagramUITests.swift */; };
 		924F9EA81F842F6B00CAFEFC /* cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 924F9EA71F842F6B00CAFEFC /* cartfile */; };
 		924F9EAD1F8432F800CAFEFC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924F9EAC1F8432F800CAFEFC /* SwiftyJSON.framework */; };
+		92D12D271F84456600C76323 /* dictionary_small.json in Resources */ = {isa = PBXBuildFile; fileRef = 9214F63F1F8425D60020DAD8 /* dictionary_small.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D12D271F84456600C76323 /* dictionary_small.json in Resources */,
 				92356AF71F82E898005D2515 /* LaunchScreen.storyboard in Resources */,
 				92356AF41F82E898005D2515 /* Assets.xcassets in Resources */,
 				924F9EA81F842F6B00CAFEFC /* cartfile in Resources */,
