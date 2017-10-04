@@ -25,10 +25,10 @@ class ViewController: UIViewController {
     
     @IBAction func findAnagrams(_ sender: Any) {
         /*
-         * grab input
-         * store input
-         * sort input for quicker comparison
-         * take the input and search against dictionary
+         * grab input: DONE
+         * store input: DONE
+         * sort input for quicker comparison: Done
+         * take the input and search against dictionary: Done
          * load dictionary
          * sort characters for each word: DONE
          * compare input to dictionary until 0 or more results are found
@@ -45,27 +45,24 @@ class ViewController: UIViewController {
         //grab the input
         let userInput = anagramInput.text
         
-        //find anagram(s)
-        let sortedInput = anagramSorter(userInputToSort: userInput!)
-        loadDictionary()
-        
         //display anagram(s)
         anagramOutput.text = findMatches(userInput: userInput!)
-
     }
     
-    private func anagramSorter(userInputToSort: String) -> Array<Any> {
-        //sorts the input alphabetically
-        let characters = Array(userInputToSort.lowercased())
-        print(characters.sorted())
+    //takes user input, sorts it alphabetically, returns a string for comparison
+    private func anagramSorter(userInputToSort: String) -> String {
+        var characters = Array(userInputToSort.lowercased())
+        characters = characters.sorted()
         
-        return characters.sorted()
+        return String(characters)
     }
     
-    func loadDictionary() -> Array<Any> {
-        //load and parse the dictionary file
-        let dictionary = ["word","definition"]
-        
+    //load and parse the dictionary file
+    //The sorted bool will alphabatize each word for better/quick matching against the input word.
+    private func loadDictionary(Sorted: Bool) -> Array<String> {
+        /*
+        //TODO: Figure out how to turn file into array
+       
         var jsonData: Data?
         
         if let file = Bundle.main.path(forResource: "dictionary_small", ofType: "json") {
@@ -73,43 +70,59 @@ class ViewController: UIViewController {
         } else {
             print("Fail")
         }
-        
-        //TODO: Figure out how to turn file into array
-        let jsonDictionary = try? JSON(data: jsonData!)
-        print(jsonDictionary)
+        */
         
         //Example Arrays from dictionary of words
         //TODO: Derive this from the actual dictionary file
-        let dictionaryWordsArray = ["anarchic","anopheles","anti-federalist","aspirated","autocratship","abrogable","athanasy"]
+        let dictionaryWordsArray = ["anarchic","anopheles","anti-federalist","aspirated","autocratship","abrogable","athanasy","athansay","athaansy"]
         print(dictionaryWordsArray)
-        
-        /*
-         * for each item in the dictionary, create a new array for each letter, sort it, then convert back to a string, and add to the "sorted" array
-         
-         Goal: keep the index the same!
-         */
-        
-        var dictionaryWordsArraySorted: [String] = []
-        for word in dictionaryWordsArray {
-            let tempArray = Array(word.lowercased().sorted())
+         if (Sorted == true){
+            // For each item in the dictionary, create a new array for each letter, sort it, then convert back to a string, and add to the "sorted" array
+            var dictionaryWordsArraySorted: [String] = []
+            for word in dictionaryWordsArray {
+                let tempArray = Array(word.lowercased().sorted()) //split of a single word, then sorted array
+                let newWord = String(tempArray) //re aggraigned word
+                dictionaryWordsArraySorted.append(newWord) //build out new array to use for matching
+            }
+            print(dictionaryWordsArraySorted)
             
-            let newWord = String(tempArray)
-            dictionaryWordsArraySorted.append(newWord)
+            return dictionaryWordsArraySorted
+        } else {
+            return dictionaryWordsArray
         }
-        print(dictionaryWordsArraySorted)
-        
-        return dictionaryWordsArraySorted
     }
     
-    func findMatches(userInput: String) -> String {
-        //take the user input, load the dictionary already storted, and search
-        let loadedDictionary = loadDictionary()
-        let output = "OG: " + (userInput)
+    //take the user input, load the dictionary already storted, and search
+    private func findMatches(userInput: String) -> String {
+        let dictionaryWordsArraySorted = loadDictionary(Sorted: true) //creates the array of dictionary items and prepares for matching
+        let dictionaryWordsArray = loadDictionary(Sorted: false)
+        var output = "OG: " + (userInput) //setup of the output field
+        var wordMatches = [Int]()
+        var count = 0
         
-       // for word in loadDictionary {
-            //does userInput = item?
-            
-        //}
+        //sort the input
+        let sortedInput = anagramSorter(userInputToSort: userInput)
+        
+        for word in dictionaryWordsArraySorted {
+            if(String(describing: word) == sortedInput){
+                //build array of matches
+                wordMatches.append(count)
+            }
+            count = count + 1
+       }
+        print(wordMatches)
+        
+        //reconcile matches to original dictionary and return output
+        if (wordMatches.isEmpty == false) {
+            for index in wordMatches {
+                output += "\n" + dictionaryWordsArray[index]
+            }
+        } else {
+            output += "\n\nThere are no anagarams for your input. Please try again."
+        }
+        
+        print(output)
+        
         return output
     }
     
