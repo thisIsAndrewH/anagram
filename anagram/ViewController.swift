@@ -81,9 +81,10 @@ class ViewController: UIViewController {
     
     //take the user input, load the dictionary already storted, and search
     private func findMatches(userInput: String) -> String {
-        let dictionaryWordsArraySorted = loadDictionary(Sorted: true) //creates the array of dictionary items and prepares for matching
+        //creates the array of dictionary items and prepares for matching
+        let dictionaryWordsArraySorted = loadDictionary(Sorted: true)
         let dictionaryWordsArray = loadDictionary(Sorted: false)
-        var output = "OG: " + (userInput) //setup of the output field
+        var output = "Input: " + (userInput) + "\n"//setup of the output field
         var wordMatches = [Int]()
         var count = 0
         
@@ -101,7 +102,7 @@ class ViewController: UIViewController {
         //reconcile matches to original dictionary and return output
         if (wordMatches.isEmpty == false) {
             for index in wordMatches {
-                output += "\n\n" + dictionaryWordsArray[index]
+                output += "\n" + dictionaryWordsArray[index]
             }
         } else {
             output += "\n\nThere are no anagarams for your input. Please try again."
