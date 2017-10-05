@@ -17,6 +17,7 @@
 		924F9EA81F842F6B00CAFEFC /* cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 924F9EA71F842F6B00CAFEFC /* cartfile */; };
 		924F9EAD1F8432F800CAFEFC /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924F9EAC1F8432F800CAFEFC /* SwiftyJSON.framework */; };
 		92D12D271F84456600C76323 /* dictionary_small.json in Resources */ = {isa = PBXBuildFile; fileRef = 9214F63F1F8425D60020DAD8 /* dictionary_small.json */; };
+		92D12D291F868B5500C76323 /* dictionary_alpha_arrays.json in Resources */ = {isa = PBXBuildFile; fileRef = 92D12D281F868B4C00C76323 /* dictionary_alpha_arrays.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		924F9EA71F842F6B00CAFEFC /* cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = cartfile; sourceTree = "<group>"; };
 		924F9EAA1F8432C300CAFEFC /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyJSON.framework.dSYM; path = Carthage/Build/iOS/SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
 		924F9EAC1F8432F800CAFEFC /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		92D12D281F868B4C00C76323 /* dictionary_alpha_arrays.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = dictionary_alpha_arrays.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		9214F63E1F8425D60020DAD8 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				92D12D281F868B4C00C76323 /* dictionary_alpha_arrays.json */,
 				9214F63F1F8425D60020DAD8 /* dictionary_small.json */,
 			);
 			path = resources;
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D12D271F84456600C76323 /* dictionary_small.json in Resources */,
+				92D12D291F868B5500C76323 /* dictionary_alpha_arrays.json in Resources */,
 				92356AF71F82E898005D2515 /* LaunchScreen.storyboard in Resources */,
 				92356AF41F82E898005D2515 /* Assets.xcassets in Resources */,
 				924F9EA81F842F6B00CAFEFC /* cartfile in Resources */,
