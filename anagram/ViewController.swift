@@ -31,14 +31,14 @@ class ViewController: UIViewController {
          * take the input and search against dictionary: Done
          * load dictionary
          * sort characters for each word: DONE
-         * compare input to dictionary until 0 or more results are found
+         * compare input to dictionary until 0 or more results are found: DONE
              * 0 = bummer
              * >0 = list options
-         * display message
+         * display message: DONE
          *
-         * assuming each word in dictionary is sorted, maintain the original index and keep trakc of those. use those indexes to find the original version of the words in the dictionary
-         * sort input a-z
-         * sort dictionary words a-z while maintaining existing indexing
+         * assuming each word in dictionary is sorted, maintain the original index and keep trakc of those. use those indexes to find the original version of the words in the dictionary: DONE
+         * sort input a-z: DONE
+         * sort dictionary words a-z while maintaining existing indexing: DONE
          */
         
         
@@ -60,22 +60,10 @@ class ViewController: UIViewController {
     //load and parse the dictionary file
     //The sorted bool will alphabatize each word for better/quick matching against the input word.
     private func loadDictionary(Sorted: Bool) -> Array<String> {
-        /*
-        //TODO: Figure out how to turn file into array
-       
-        var jsonData: Data?
-        
-        if let file = Bundle.main.path(forResource: "dictionary_small", ofType: "json") {
-            jsonData = try? Data(contentsOf: URL(fileURLWithPath: file))
-        } else {
-            print("Fail")
-        }
-        */
-        
-        //Example Arrays from dictionary of words
-        //TODO: Derive this from the actual dictionary file
-        let dictionaryWordsArray = ["anarchic","anopheles","anti-federalist","aspirated","autocratship","abrogable","athanasy","athansay","athaansy"]
-        print(dictionaryWordsArray)
+        let dictionaryWordsArray = fetchDictionary()
+            //["anarchic","anopheles","anti-federalist","aspirated","autocratship","abrogable","athanasy","athansay","athaansy"]
+        //TODO: Delete this print, it'll be huge when coming from a dictionary.
+        //print(dictionaryWordsArray)
          if (Sorted == true){
             // For each item in the dictionary, create a new array for each letter, sort it, then convert back to a string, and add to the "sorted" array
             var dictionaryWordsArraySorted: [String] = []
@@ -84,12 +72,35 @@ class ViewController: UIViewController {
                 let newWord = String(tempArray) //re aggraigned word
                 dictionaryWordsArraySorted.append(newWord) //build out new array to use for matching
             }
-            print(dictionaryWordsArraySorted)
+            //TODO: Delete this print, it'll be huge when coming from a dictionary.
+            //print(dictionaryWordsArraySorted)
             
             return dictionaryWordsArraySorted
         } else {
             return dictionaryWordsArray
         }
+    }
+    
+    //loads webster dictionary from file
+    private func fetchDictionary() -> Array<String> {
+        var jsonData: Data?
+        if let file = Bundle.main.path(forResource: "dictionary_alpha_arrays", ofType: "json") {
+            jsonData = try? Data(contentsOf: URL(fileURLWithPath: file))
+            
+        } else {
+            print("Fail")
+        }
+        
+        //convert to JSONSwifty
+        let jsonSwifty = JSON(jsonData!)
+        
+        let words:JSON = jsonSwifty[0]
+        var dictionaryArray: [String] = []
+        for word in words{
+            dictionaryArray.append(String(describing: word.0))
+        }
+        
+        return dictionaryArray
     }
     
     //take the user input, load the dictionary already storted, and search
@@ -120,14 +131,9 @@ class ViewController: UIViewController {
         } else {
             output += "\n\nThere are no anagarams for your input. Please try again."
         }
-        
         print(output)
         
         return output
     }
-    
-    
-    
 
 }
-
